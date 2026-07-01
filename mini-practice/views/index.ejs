@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Document</title>
+</head>
+<body> 
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form px-10 py-10">
+            <form action="/create" method="post">
+                <input name="title" class="block px-5 w-full  py-2 rounded-md bg-zinc-800 text-white placeholder:text-zinc-500 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="" id="" placeholder="title">
+                <textarea name="details" class="block mt-2 w-full resize-none px-5 py-2 bg-zinc-800 text-white placeholder:text-zinc-500 border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500" name="" id="" cols="30" rows="10" placeholder="description"></textarea>
+                <input class="block mt-2 px-5 py-2 bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" type="submit" value="submit">
+            </form>
+        </div>
+        <div class="tasks flex flex-wrap gap-3 p-10">
+            <% if(files.length > 0){  %>
+                <% files.forEach(function(val){ %>
+                          <div class="task w-72 px-3 py-4 bg-zinc-800 border border-zinc-600">
+                <h1 class="text-white text-3xl tracking-tighter"><%= val %></h1>
+
+                <!-- <p class="text-zinc-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto rerum magni exercitationem nesciunt eum vero minima perferendis amet similique harum.</p> -->
+                <a class="text-blue-500 hover:text-blue-400" href="">View Details</a>
+            </div>
+                <% }) %>
+            <% } else { %>
+                <h3 class="text-zinc-400">No tasks yet</h3>
+            <% } %>
+            
+
+           
+        </div>
+    </div>
+</body>
+</html>
