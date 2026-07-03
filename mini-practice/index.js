@@ -14,6 +14,37 @@ app.get('/', (req, res) => {
         res.render('index', {files:files})
     })
 })
+app.get('/files/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, 'utf8', function(err, data){
+        if(err){
+            console.log(err)
+        } else {
+            res.render('show', {filename: req.params.filename, data: data})
+        }
+    })
+})
+
+app.get('/edit/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, 'utf8', function(err, data){
+        if(err){
+            console.log(err)
+        } else {
+            res.render('edit', {filename: req.params.filename, data: data})
+        }
+    })
+})
+
+app.post('/edit', (req, res) => {
+    console.log(req.body)
+    fs.rename(`./files/${req.body.prevTitle}`, `./files/${req.body.newTitle}`, function(err){
+        if(err){
+            console.log(err)
+        } else {
+            res.redirect('/')
+        }
+    })
+})
+
 
 app.post('/create', (req, res) => {
 //    console.log(req.body)

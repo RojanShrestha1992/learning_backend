@@ -23,7 +23,11 @@
                 <h1 class="text-white text-3xl tracking-tighter"><%= val %></h1>
 
                 <!-- <p class="text-zinc-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto rerum magni exercitationem nesciunt eum vero minima perferendis amet similique harum.</p> -->
-                <a class="text-blue-500 hover:text-blue-400" href="">View Details</a>
+                 <div class="flex justify-between">
+
+                     <a class="text-blue-500 hover:text-blue-400" href="/files/<%= val %>">View Details</a>
+                 <a href="/edit/<%= val %>" class="text-green-500 hover:text-green-400">edit</a>
+                 </div>
             </div>
                 <% }) %>
             <% } else { %>
